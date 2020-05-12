@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Email component... Email component snapshot 1`] = `
+<div
+  class="emails-input__email email"
+>
+  john@miro.com
+        
+  <button
+    class="email__btn-delete"
+    title="Delete email"
+  >
+    ✖
+  </button>
+  
+    
+</div>
+`;
