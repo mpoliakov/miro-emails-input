@@ -1,0 +1,19 @@
+{
+  "name": "miro-emails-input",
+  "version": "1.0.0",
+  "description": "Frontend test assessment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpoliakov/miro-emails-input.git"
+  },
+  "author": "Maksim Poliakov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mpoliakov/miro-emails-input/issues"
+  },
+  "homepage": "https://github.com/mpoliakov/miro-emails-input#readme"
+}

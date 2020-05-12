@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Frontend test assessment to Miro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="share-form">
+  <div class="share-form__body">
+    <h3 class="share-form__title">Share <b>My board</b> with others</h3>
+    <div class="emails-input">
+      <div class="emails-input__container">
+        <div class="emails-input__email email">
+          ann@miro.com
+          <button class="email__btn-delete" title="Delete email">&#x2716</button>
+        </div>
+        <div class="emails-input__email email email--invalid">
+          invalid.email
+          <button class="email__btn-delete" title="Delete email">&#x2716</button>
+        </div>
+        <div class="emails-input__email email">
+          john@miro.com
+          <button class="email__btn-delete" title="Delete email">&#x2716</button>
+        </div>
+        <div class="emails-input__email email">
+          mpoliakov@gmail.com
+          <button class="email__btn-delete" title="Delete email">&#x2716</button>
+        </div>
+      </div>
+      <input class="emails-input__input" type="email" placeholder="add more people...">
+    </div>
+  </div>
+  <div class="share-form__actions btn-group">
+    <button class="btn-group__btn btn" type="button">Add email</button>
+    <button class="btn-group__btn btn" type="button">Get emails count</button>
+  </div>
+</div>
+</body>
+</html>
