@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: [
@@ -14,6 +15,11 @@ module.exports = {
     watchContentBase: true,
     hot: true
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'components.css'
+    }),
+  ],
   module: {
     rules: [
       {
@@ -23,6 +29,24 @@ module.exports = {
         ],
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.less$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [
+                require('autoprefixer'),
+                require('cssnano')
+              ]
+            }
+          },
+          'less-loader',
+        ],
       }
     ],
   },

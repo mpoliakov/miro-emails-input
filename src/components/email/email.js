@@ -1,3 +1,5 @@
+import './email.less';
+
 import AbstractComponent from '../abstract-component';
 import {validateEmail} from '../../utils';
 

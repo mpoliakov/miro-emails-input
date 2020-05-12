@@ -1,5 +1,7 @@
 import Email from './email';
 
+jest.mock('./email.less', () => jest.fn());
+
 describe('Testing Email component...', () => {
   it('Email component snapshot', () => {
     const emailComponent = new Email('john@miro.com', null, 'emails-input__email');

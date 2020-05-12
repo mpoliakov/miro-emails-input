@@ -1,3 +1,5 @@
+import './emails-input.less';
+
 import AbstractComponent from '../abstract-component';
 import Email from '../email/email';
 

@@ -1,0 +1,38 @@
+@import '../variables';
+
+.emails-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100px;
+  height: 100%;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #c3c2cf;
+  border-radius: 4px;
+  overflow-y: auto;
+}
+
+.emails-input__container {
+  display: inline;
+  vertical-align: baseline;
+}
+
+.emails-input__email {
+  margin: 0 8px 4px 0;
+
+  &:last-child {
+    margin-right: 4px;
+  }
+}
+
+.emails-input__input {
+  padding: 0 4px;
+  font-size: @font-size;
+  line-height: @line-height;
+  color: @text-color;
+  border: none;
+
+  &::placeholder {
+    color: #c3c2cf;
+  }
+}
