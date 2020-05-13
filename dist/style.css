@@ -26,7 +26,7 @@ body {
 }
 
 .share-form__title {
-  margin-bottom: 24px;
+  margin: 0 0 24px;
   font-size: 20px;
   line-height: 27px;
   font-weight: normal;

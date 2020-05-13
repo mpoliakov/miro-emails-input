@@ -7,14 +7,14 @@ export default class AbstractComponent {
     this._element = null;
   }
 
-  _getTemplate() {
+  getTemplate() {
     throw new Error('Not implemented exception.');
   }
 
   getElement() {
     if (!this._element) {
       const el = document.createElement('div');
-      el.innerHTML = this._getTemplate();
+      el.innerHTML = this.getTemplate();
       this._element = el.firstChild;
     }
 

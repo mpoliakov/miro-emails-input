@@ -13,5 +13,5 @@ document.querySelector('#btn-add-email').addEventListener('click', function() {
 });
 
 document.querySelector('#btn-emails-count').addEventListener('click', function() {
-  alert(emailsInput.getEmails().length);
+  alert(emailsInput.getEmails(true).length);
 });

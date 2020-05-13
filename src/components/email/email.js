@@ -23,7 +23,7 @@ export default class Email extends AbstractComponent {
     this._subscribe();
   }
 
-  _getTemplate() {
+  getTemplate() {
     return createEmailTemplate(this._email, validateEmail(this._email), this._classMix);
   }
 
