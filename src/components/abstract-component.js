@@ -22,7 +22,7 @@ export default class AbstractComponent {
   }
 
   removeElement() {
-    this._element.remove();
+    this._element.parentNode.removeChild(this._element);
     this._element = null;
   }
 }

@@ -22,7 +22,7 @@ export default class EmailsInput extends AbstractComponent {
       throw new Error('Container should be provided');
     }
 
-    container.append(this.getElement());
+    container.appendChild(this.getElement());
 
     this._containerEl = this.getElement().querySelector('.emails-input__container');
     this._inputEl = this.getElement().querySelector('.emails-input__input');
@@ -62,7 +62,16 @@ export default class EmailsInput extends AbstractComponent {
 
   _onInputPaste(evt) {
     evt.preventDefault();
-    const data = evt.clipboardData.getData('text/plain');
+
+    let data;
+
+    if (window.clipboardData && window.clipboardData.getData) { // IE
+      data = window.clipboardData.getData('Text');
+    }
+    else if (evt.clipboardData && evt.clipboardData.getData) { // other browsers
+      data = evt.clipboardData.getData('text/plain');
+    }
+
     this.addEmails(data);
   }
 
@@ -87,7 +96,7 @@ export default class EmailsInput extends AbstractComponent {
     this._emails.splice(this._emails.length - 1, 1);
 
     if (this._containerEl.lastChild) {
-      this._containerEl.lastChild.remove();
+      this._containerEl.lastChild.parentNode.removeChild(this._containerEl.lastChild);
     }
   }
 
@@ -124,7 +133,7 @@ export default class EmailsInput extends AbstractComponent {
       fragment.appendChild(emailComponent.getElement());
     });
 
-    this._containerEl.append(fragment);
+    this._containerEl.appendChild(fragment);
   }
 
   replaceEmails(emails) {
