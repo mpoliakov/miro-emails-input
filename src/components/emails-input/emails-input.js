@@ -7,7 +7,7 @@ import {validateEmail} from '../../utils';
 const createEmailsInputTemplate = () => {
   return (
     `<div class="emails-input">
-      <div class="emails-input__container"></div><input class="emails-input__input" type="email" placeholder="add more people...">
+      <div class="emails-input__container"></div><input class="emails-input__input" type="email" aria-label="add more people..." placeholder="add more people...">
     </div>`
   );
 };

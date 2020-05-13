@@ -39,6 +39,10 @@ body {
   border-radius: 0px 0px 8px 8px;
 }
 
+.btn-group {
+  display: flex;
+}
+
 .btn-group__btn {
   margin-right: 16px;
 }
