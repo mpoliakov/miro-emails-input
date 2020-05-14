@@ -18,7 +18,28 @@ exports[`Testing EmailsInput component... EmailsInput component snapshot 1`] = `
         class="email__btn-delete"
         title="Delete email"
       >
-        ✖
+        
+          
+        <svg
+          fill="none"
+          height="8"
+          viewBox="0 0 8 8"
+          width="8"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          
+            
+          <path
+            clip-rule="evenodd"
+            d="M8 0.8L7.2 0L4 3.2L0.8 0L0 0.8L3.2 4L0 7.2L0.8 8L4 4.8L7.2 8L8 7.2L4.8 4L8 0.8Z"
+            fill="#050038"
+            fill-rule="evenodd"
+          />
+          
+          
+        </svg>
+        
+        
       </button>
       
     
@@ -32,7 +53,28 @@ exports[`Testing EmailsInput component... EmailsInput component snapshot 1`] = `
         class="email__btn-delete"
         title="Delete email"
       >
-        ✖
+        
+          
+        <svg
+          fill="none"
+          height="8"
+          viewBox="0 0 8 8"
+          width="8"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          
+            
+          <path
+            clip-rule="evenodd"
+            d="M8 0.8L7.2 0L4 3.2L0.8 0L0 0.8L3.2 4L0 7.2L0.8 8L4 4.8L7.2 8L8 7.2L4.8 4L8 0.8Z"
+            fill="#050038"
+            fill-rule="evenodd"
+          />
+          
+          
+        </svg>
+        
+        
       </button>
       
     
@@ -46,7 +88,28 @@ exports[`Testing EmailsInput component... EmailsInput component snapshot 1`] = `
         class="email__btn-delete"
         title="Delete email"
       >
-        ✖
+        
+          
+        <svg
+          fill="none"
+          height="8"
+          viewBox="0 0 8 8"
+          width="8"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          
+            
+          <path
+            clip-rule="evenodd"
+            d="M8 0.8L7.2 0L4 3.2L0.8 0L0 0.8L3.2 4L0 7.2L0.8 8L4 4.8L7.2 8L8 7.2L4.8 4L8 0.8Z"
+            fill="#050038"
+            fill-rule="evenodd"
+          />
+          
+          
+        </svg>
+        
+        
       </button>
       
     
@@ -60,13 +123,35 @@ exports[`Testing EmailsInput component... EmailsInput component snapshot 1`] = `
         class="email__btn-delete"
         title="Delete email"
       >
-        ✖
+        
+          
+        <svg
+          fill="none"
+          height="8"
+          viewBox="0 0 8 8"
+          width="8"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          
+            
+          <path
+            clip-rule="evenodd"
+            d="M8 0.8L7.2 0L4 3.2L0.8 0L0 0.8L3.2 4L0 7.2L0.8 8L4 4.8L7.2 8L8 7.2L4.8 4L8 0.8Z"
+            fill="#050038"
+            fill-rule="evenodd"
+          />
+          
+          
+        </svg>
+        
+        
       </button>
       
     
     </div>
   </div>
   <input
+    aria-label="add more people..."
     class="emails-input__input"
     placeholder="add more people..."
     type="email"

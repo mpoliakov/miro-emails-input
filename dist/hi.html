@@ -8,17 +8,27 @@
   <link href="components/components.css" rel="stylesheet">
 </head>
 <body>
-<div class="share-form share-form--centered">
+<div class="share-form share-form--centeredX">
   <div class="share-form__body">
-    <h3 class="share-form__title">Share <b>My board</b> with others</h3>
-    <div class="emails-input-container"></div>
+    <h3 class="share-form__title">Say <b>"Hi"</b> to the next people:</h3>
+    <div id="emails-input-container-1" class="emails-input-container"></div>
+    <span>* Open console to see the changes</span>
   </div>
   <div class="share-form__actions btn-group">
     <button id="btn-add-email" class="btn-group__btn btn" type="button">Add email</button>
     <button id="btn-emails-count" class="btn-group__btn btn" type="button">Get emails count</button>
   </div>
 </div>
+<div class="share-form share-form--centeredX">
+  <div class="share-form__body">
+    <h3 class="share-form__title">Say <b>"Hello"</b> to the next people:</h3>
+    <div id="emails-input-container-2" class="emails-input-container"></div>
+  </div>
+  <div class="share-form__actions btn-group">
+    <button id="btn-replace-emails" class="btn-group__btn btn" type="button">Randomize</button>
+  </div>
+</div>
 <script src="components/components.js"></script>
-<script src="index.js"></script>
+<script src="hi.js"></script>
 </body>
 </html>

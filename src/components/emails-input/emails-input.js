@@ -13,7 +13,7 @@ const createEmailsInputTemplate = () => {
 };
 
 export default class EmailsInput extends AbstractComponent {
-  constructor(container) {
+  constructor(container, onChange) {
     super();
 
     this._emails = [];
@@ -24,12 +24,15 @@ export default class EmailsInput extends AbstractComponent {
 
     container.appendChild(this.getElement());
 
+    this.onChange = onChange;
+
     this._containerEl = this.getElement().querySelector('.emails-input__container');
     this._inputEl = this.getElement().querySelector('.emails-input__input');
 
     this._onKeyDown = this._onKeyDown.bind(this);
     this._onInputBlur = this._onInputBlur.bind(this);
     this._onInputPaste = this._onInputPaste.bind(this);
+    this._focusInput = this._focusInput.bind(this);
     this._handleDeleteEmail = this._handleDeleteEmail.bind(this);
 
     this._subscribe();
@@ -39,6 +42,7 @@ export default class EmailsInput extends AbstractComponent {
     this._inputEl.onkeydown = this._onKeyDown;
     this._inputEl.onblur = this._onInputBlur;
     this._inputEl.onpaste = this._onInputPaste;
+    this.getElement().onclick = this._focusInput;
   }
 
   _onKeyDown(evt) {
@@ -67,19 +71,26 @@ export default class EmailsInput extends AbstractComponent {
 
     if (window.clipboardData && window.clipboardData.getData) { // IE
       data = window.clipboardData.getData('Text');
-    }
-    else if (evt.clipboardData && evt.clipboardData.getData) { // other browsers
+    } else if (evt.clipboardData && evt.clipboardData.getData) { // other browsers
       data = evt.clipboardData.getData('text/plain');
     }
 
     this.addEmails(data);
   }
 
+  _focusInput(evt) {
+    if (evt.target === this.getElement()) {
+      this._inputEl.focus();
+    }
+  }
+
   _handleDeleteEmail(email) {
     const index = this._emails.indexOf(email);
 
     if (index > -1) {
+      const prevState = this._emails.concat();
       this._emails.splice(index, 1);
+      this._onDataChange(prevState);
     }
   }
 
@@ -93,10 +104,20 @@ export default class EmailsInput extends AbstractComponent {
       return;
     }
 
+    const prevState = this._emails.concat();
+
     this._emails.splice(this._emails.length - 1, 1);
 
     if (this._containerEl.lastChild) {
       this._containerEl.lastChild.parentNode.removeChild(this._containerEl.lastChild);
+    }
+
+    this._onDataChange(prevState);
+  }
+
+  _onDataChange(prevState) {
+    if (this.onChange) {
+      this.onChange(this._emails, prevState);
     }
   }
 
@@ -104,7 +125,7 @@ export default class EmailsInput extends AbstractComponent {
     return createEmailsInputTemplate();
   }
 
-  addEmails(emails) {
+  addEmails(emails, replace) {
     if (!emails) {
       return;
     }
@@ -113,12 +134,21 @@ export default class EmailsInput extends AbstractComponent {
 
     if (typeof emails === 'string') {
       emailsArr = emails.split(',').map(email => email.trim());
-    }
-    else if (Array.isArray((emails))) {
+    } else if (Array.isArray((emails))) {
       emailsArr = emails;
     }
 
     emailsArr = emailsArr.map((email) => email.toLowerCase()).filter((email) => email && !this._emails.includes(email));
+
+    const prevState = this._emails.concat();
+
+    if (replace) {
+      this._emails = [];
+
+      while (this._containerEl.firstChild) {
+        this._containerEl.removeChild(this._containerEl.lastChild);
+      }
+    }
 
     if (!emailsArr.length) {
       return;
@@ -134,16 +164,12 @@ export default class EmailsInput extends AbstractComponent {
     });
 
     this._containerEl.appendChild(fragment);
+
+    this._onDataChange(prevState);
   }
 
   replaceEmails(emails) {
-    this._emails = [];
-
-    while (this._containerEl.firstChild) {
-      this._containerEl.removeChild(this._containerEl.lastChild);
-    }
-
-    this.addEmails(emails);
+    this.addEmails(emails, true);
   }
 
   getEmails(validOnly) {

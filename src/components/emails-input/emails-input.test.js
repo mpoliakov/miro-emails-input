@@ -46,6 +46,9 @@ describe('Testing EmailsInput component...', () => {
       emailInputComponent.replaceEmails([]);
       expect(emailInputComponent.getEmails()).toEqual([]);
 
+      emailInputComponent.replaceEmails('');
+      expect(emailInputComponent.getEmails()).toEqual([]);
+
       emailInputComponent.replaceEmails('john@miro.com');
       expect(emailInputComponent.getEmails()).toEqual(['john@miro.com']);
     });
@@ -57,6 +60,29 @@ describe('Testing EmailsInput component...', () => {
       emailInputComponent.addEmails('max@miro.com , ,hi@miro.com, invalid.email');
       expect(emailInputComponent.getEmails()).toEqual(['max@miro.com', 'hi@miro.com', 'invalid.email']);
       expect(emailInputComponent.getEmails(true)).toEqual(['max@miro.com', 'hi@miro.com']);
+    });
+
+    it('onChange subscription', () => {
+      const container = document.createElement('div');
+
+      const onChange = jest.fn();
+      const emailInputComponent = new EmailsInput(container, onChange);
+
+      emailInputComponent.addEmails('max@miro.com, invalid.email');
+      expect(onChange).toBeCalledTimes(1);
+      expect(onChange).toBeCalledWith(['max@miro.com', 'invalid.email'], []);
+
+      emailInputComponent.addEmails('hi@miro.com');
+      expect(onChange).toBeCalledTimes(2);
+      expect(onChange).toBeCalledWith(['max@miro.com', 'invalid.email', 'hi@miro.com'], ['max@miro.com', 'invalid.email']);
+
+      emailInputComponent.replaceEmails('john@miro.com');
+      expect(onChange).toBeCalledTimes(3);
+      expect(onChange).toBeCalledWith(['john@miro.com'], ['max@miro.com', 'invalid.email', 'hi@miro.com']);
+
+      emailInputComponent.getElement().querySelector('.email__btn-delete').click();
+      expect(onChange).toBeCalledTimes(4);
+      expect(onChange).toBeCalledWith([], ['john@miro.com']);
     });
   });
 
